@@ -31,21 +31,6 @@ services:
     networks:
       - wt
 
-#  sftpgo-modified2:
-#    container_name: wt-sftpgo-modified2
-#    image: firatkucuk/sftpgo:2.6.5.1-b64
-#    environment:
-#      SFTPGO_DATA_PROVIDER__CREATE_DEFAULT_ADMIN: "true"
-#      SFTPGO_DEFAULT_ADMIN_PASSWORD: "password"
-#      SFTPGO_DEFAULT_ADMIN_USERNAME: "admin"
-#      SFTPGO_HTTPD__SIGNING_PASSPHRASE: "secret" # Used for JWT token signing
-#      SFTPGO_HTTPD__TOKEN_VALIDATION: "1" # This prevents IP address validation for API access
-#    ports:
-#      - "2024:2022"
-#      - "18082:8080"
-#    networks:
-#      - wt
-
 networks:
   wt:
     name: webhook-test
