@@ -1,0 +1,15 @@
+{
+  "name": "webhook-test-server",
+  "version": "1.0.0",
+  "description": "A simple REST API server using Node.js and Express.",
+  "main": "server.js",
+  "scripts": {
+    "start-ws": "node webhook-server.js",
+    "start-hfs": "node http-fs-server.js"
+  },
+  "dependencies": {
+    "crypto": "^1.0.1",
+    "express": "^4.18.2",
+    "jsrsasign": "^11.1.0"
+  }
+}

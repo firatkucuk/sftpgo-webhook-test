@@ -1,0 +1,52 @@
+services:
+  sftpgo-original:
+    container_name: wt-sftpgo-original
+    image: drakkan/sftpgo:v2.6.5
+    environment:
+      SFTPGO_DATA_PROVIDER__CREATE_DEFAULT_ADMIN: "true"
+      SFTPGO_DATA_PROVIDER__PRE_LOGIN_HOOK: "http://host.docker.internal:8080/pre-login"
+      SFTPGO_DEFAULT_ADMIN_PASSWORD: "password"
+      SFTPGO_DEFAULT_ADMIN_USERNAME: "admin"
+      SFTPGO_HTTPD__SIGNING_PASSPHRASE: "secret" # Used for JWT token signing
+      SFTPGO_HTTPD__TOKEN_VALIDATION: "1" # This prevents IP address validation for API access
+    ports:
+      - "2022:2022"
+      - "18080:8080"
+    networks:
+      - wt
+
+  sftpgo-modified:
+    container_name: wt-sftpgo-modified
+    image: firatkucuk/sftpgo:2.6.5.1-b64
+    environment:
+      SFTPGO_DATA_PROVIDER__CREATE_DEFAULT_ADMIN: "true"
+      SFTPGO_DATA_PROVIDER__PRE_LOGIN_HOOK: "http://host.docker.internal:8080/pre-login"
+      SFTPGO_DEFAULT_ADMIN_PASSWORD: "password"
+      SFTPGO_DEFAULT_ADMIN_USERNAME: "admin"
+      SFTPGO_HTTPD__SIGNING_PASSPHRASE: "secret" # Used for JWT token signing
+      SFTPGO_HTTPD__TOKEN_VALIDATION: "1" # This prevents IP address validation for API access
+    ports:
+      - "2023:2022"
+      - "18081:8080"
+    networks:
+      - wt
+
+#  sftpgo-modified2:
+#    container_name: wt-sftpgo-modified2
+#    image: firatkucuk/sftpgo:2.6.5.1-b64
+#    environment:
+#      SFTPGO_DATA_PROVIDER__CREATE_DEFAULT_ADMIN: "true"
+#      SFTPGO_DEFAULT_ADMIN_PASSWORD: "password"
+#      SFTPGO_DEFAULT_ADMIN_USERNAME: "admin"
+#      SFTPGO_HTTPD__SIGNING_PASSPHRASE: "secret" # Used for JWT token signing
+#      SFTPGO_HTTPD__TOKEN_VALIDATION: "1" # This prevents IP address validation for API access
+#    ports:
+#      - "2024:2022"
+#      - "18082:8080"
+#    networks:
+#      - wt
+
+networks:
+  wt:
+    name: webhook-test
+    driver: bridge
