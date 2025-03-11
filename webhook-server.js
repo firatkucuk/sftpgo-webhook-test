@@ -56,7 +56,6 @@ app.post('/pre-login', async (req, res) => {
     virtual_folders: [{
       name: 'virtual',
       virtual_path: "/virtual",
-      mapped_path: "/etc",
       filesystem: {
         provider: 6, // http
         httpconfig: {
