@@ -1,7 +1,7 @@
 # Example Test Case App
 
-This application is basic reproduction of (this issue)[https://github.com/drakkan/sftpgo/issues/1890].
-A (PR)[https://github.com/drakkan/sftpgo/pull/1891] is created for overcoming this issue
+This application is basic reproduction of [this issue](https://github.com/drakkan/sftpgo/issues/1890).
+A [PR](https://github.com/drakkan/sftpgo/pull/1891) is created for overcoming this issue
 
 This simple javascript application contains 2 servers. One of them is for hosting webhook. The other one
 is an http server for http filesystem support. Originally the problem is occurred while we are testing
